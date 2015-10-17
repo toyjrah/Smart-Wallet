@@ -1,0 +1,128 @@
+<html>
+<!-- Created on: 25/05/2007 -->
+
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.pdfmyform.com/js/pdfmyform.js"></script>
+
+<script>
+	$(document).ready(function(){
+		$("#Submit_button").click(function(){
+			var num= document.getElementById("haha").value;
+			document.getElementById("getFname").innerHTML= document.getElementById("fname").value;
+			document.getElementById("getLname").innerHTML= document.getElementById("lname").value;
+			document.getElementById("getImg").src = "https://api.qrserver.com/v1/create-qr-code/?data="+num;
+		});
+	});
+	
+	
+	$(function(){
+         var doc = new jsPDF();
+    var specialElementHandlers = {
+        '#editor': function (element, renderer) {
+            return true;
+        }
+    };
+
+   $('#cmd').click(function () {
+
+        var table = tableToJson($('#table_print').get(0))
+        var doc = new jsPDF('p','pt', 'a4', true);
+        doc.cellInitialize();
+        $.each(table, function (i, row){
+            console.debug(row);
+            $.each(row, function (j, cell){
+                doc.cell(10, 50,120, 50, cell, i);  // 2nd parameter=top margin,1st=left margin 3rd=row cell width 4th=Row height
+            })
+        })
+
+
+        doc.save('sample-file.pdf');
+    });
+    function tableToJson(table) {
+    var data = [];
+
+    // first row needs to be headers
+    var headers = [];
+    for (var i=0; i<table.rows[0].cells.length; i++) {
+        headers[i] = table.rows[0].cells[i].innerHTML.toLowerCase().replace(/ /gi,'');
+    }
+
+
+    // go through cells
+    for (var i=0; i<table.rows.length; i++) {
+
+        var tableRow = table.rows[i];
+        var rowData = {};
+
+        for (var j=0; j<tableRow.cells.length; j++) {
+
+            rowData[ headers[j] ] = tableRow.cells[j].innerHTML;
+
+        }
+
+        data.push(rowData);
+    }       
+
+    return data;
+}
+});
+	</script>
+</head>
+
+<body>
+
+<div>
+  First name<input type="text" name="field1"  value="field 1" id="fname" /><br>
+  Last Name<input type="text" name="field2" value="field 2" id="lname"/><br>
+  ACC num: <input type="text" name="creditCardNumber" id="haha">  </br> 
+  <img src="" id="getImg" width="100" height="100" alt="Your unique QR come HERE !"></img>
+  </br>
+	<input type="button" class="btn btn-link btn-block" id="Submit_button" value="Submit"/>
+</div>
+
+
+<table id="table_print">
+<tr><th><b>First Name:</b></th><th><b id="getFname"></b></th></tr>
+<tr><th><b>Last Name:</b></th><th><b id="getLname"></b></th></tr>
+<tr><th>
+<img src="" id="getImg" width="100" height="100" alt="Your unique QR come HERE !"></img>
+</th></tr>
+</table>
+
+
+
+<!-- <div id="QR_img" style="display=none;">
+<label>First name:</lable>
+<b id="fn"></b>
+</br>
+<label>Last name:</lable>
+<b id="ln"></b>
+</br>
+
+</div>
+  -->
+ 
+<!-- <script>
+$(document).ready(function(){
+alert("skdv");
+	var name=$("#haha").attr("text");
+	jQuery('#qrcodeCanvas').qrcode({
+		//text	: $( "input[name='creditCardNumber']" );
+		text	: name,
+		alert(name);
+	});	
+});
+
+</script> --> 
+<script type="text/javascript" src="js/jspdf.js"></script>
+<script type="text/javascript" src="static/jquery.qrcode.js"></script>
+<script type="text/javascript" src="static/qrcode.js"></script>
+<script type="text/javascript" src="static/jquery-2.1.3.js"></script>
+<script type="text/javascript" src="js/bytescoutpdf.js"></script>
+<script type="text/javascript" src="js/createpdf.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<html>
+<!-- Created on: 25/05/2007 -->
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script src='js/vfs_fonts.js'></script>
+<script src='js/pdfmake.min.js'></script>
+<script type="text/javascript" src="static/jquery-2.1.3.js"></script>
+<script type="text/javascript">
+	
+			
+	function Html2Pdf(){
+				
+			 var docDefinition = {
+   content: [
+     // if you don't need styles, you can use a simple string to define a paragraph
+     'This is a standard paragraph, using default style',
+
+     // using a { text: '...' } object lets you set styling properties
+     { text: 'This paragraph will have a bigger font', fontSize: 15 },
+
+   ]
+ };
+			 pdfMake.createPdf(docDefinition).print();
+			 alert("1");
+			}
+		
+
+			
+			//h2p();
+			<!-- var pdf= new BytescoutPDF();
+			
+//			pdf.pageSetSize(BytescoutPDF.Letter);
+	//		pdf.pageSetOrientation(true);
+		//	pdf.pageAdd();
+			
+			//var img= document.getElementById("baba").src;
+			//pdf.textAdd(20, 30, 'sumuu');
+		//	pdf.textadd(20, 40, 'darisi');
+			//alert("sdbvds");
+			//return pdf; 
+			
+</script>
+
+
+</head>
+
+<body>
+
+
+<p>
+<div>
+  First name<input type="text" name="field1"  value="field 1" id="fname" /><br>
+  Last Name<input type="text" name="field2" value="field 2" id="lname"/><br>
+  ACC num: <input type="text" name="creditCardNumber" id="haha">  </br> 
+  <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/31/QR_icon.svg/1024px-QR_icon.svg.png" id="baba" alt="QR" width="100" height="100"></img>
+  </br>
+	</script>
+	<a href="javascript:Html2Pdf()">Submit</a>
+</div>
+</p>
+
+
+<!-- <div id="QR_img" style="display=none;">
+<label>First name:</lable>
+<b id="fn"></b>
+</br>
+<label>Last name:</lable>
+<b id="ln"></b>
+</br>
+
+</div>
+  -->
+ 
+<!-- <script>
+$(document).ready(function(){
+alert("skdv");
+	var name=$("#haha").attr("text");
+	jQuery('#qrcodeCanvas').qrcode({
+		//text	: $( "input[name='creditCardNumber']" );
+		text	: name,
+		alert(name);
+	});	
+});
+
+</script> --> 
+
+<script type="text/javascript" src="js/jspdf.js"></script>
+<script type="text/javascript" src="static/jquery.qrcode.js"></script>
+<script type="text/javascript" src="static/qrcode.js"></script>
+
+<script type="text/javascript" src="js/bytescoutpdf.js"></script>
+<script type="text/javascript" src="js/createpdf.js"></script>
+
+
+</body>
+
+</html>

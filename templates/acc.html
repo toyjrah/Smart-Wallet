@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>HomePage</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+		
+    <!-- Bootstrap Core CSS -->
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+</head>
+
+<body class="body">
+<div class="container-fluid">
+<div class="jumbotron" style="margin-top:30px;">
+<h1 style="text-align:center;"> Sumanth's wallet...</h1>
+<div id="count" style="font-size:20px;text-align:center;"><br></div>
+<script>
+			document.getElementById("count").innerHTML = 5 + 6 +"documents";
+			
+</script>
+</div>
+<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+  <div class="container">
+    <div class="list-inline" style="padding-left:33%;">
+      
+        <li>
+		<a href="/banks" data-toggle="popover" title="What's this?" data-placement="bottom" data-content="Create and store all your Debit and Credit cards safely.NOTE: You cant download or edit this form for safety reasons." style=" padding-left:20px;" /> BankCards</a>
+        </li>
+		<li>
+          <a href="/identities" style=" padding-left:20px;" > Identities</a>
+        </li>
+        <li>
+          <a href="/coupons" style=" padding-left:20px;" > Coupons</a>
+        </li>
+        <li>
+          <a href="/docs" style=" padding-left:20px;" > My Docs</a>
+        </li>
+      
+      <!-- <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://expo.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Expo');">Expo</a></li>
+        <li><a href="http://blog.getbootstrap.com" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');">Blog</a></li>
+      </ul> -->
+  </div>
+</header>
+</div>
+<script>
+$(DOCUMENT).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
+<script src="static/bootstrap.min.js"></script>
+</div>
+<form action="logout" style="position:absolute; bottom:30px; padding-left:90%; right:60px;">
+<input type= "submit" class="btn btn-danger" value="Logout"/>
+</form>
+</body>

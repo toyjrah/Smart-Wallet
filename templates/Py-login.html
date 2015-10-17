@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Wallet :: Stevens institute of Technology</title>
+
+    <!-- Bootstrap core CSS -->
+    
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css') }}">
+	<link href='http://fonts.googleapis.com/css?family=Devonshire' rel='stylesheet' type='text/css'>
+    <!-- Custom styles for this template -->
+
+  </head>
+  
+  <body>
+  <div class="container-fluid">
+	<div class="jumbotron">
+	<div class="loginName" style="font-family: 'Devonshire', cursive;">Login</div>
+	<div class="loginIP">
+		<form action="" method="post">
+			
+			<div class="form-group">
+			<input type="text" class="form-control1" name="username"
+			placeholder="username" value="{{request.form.username}}">
+			
+			<input type="password" class="form-control1" name="password"
+			placeholder="password" value="{{request.form.password}}">
+			
+			<input class="btn btn-default" type="submit" value="signin" style="left:5px;width:90px;position:absolute;">
+		<a href="signup"><input class="btn btn-warning" type="button" style="left:100px;position:absolute;width:184px;" value="Create a new account?"></input></a>
+			</p>
+			</div>
+			
+			
+			</div>
+			
+			</form>
+			
+		{% for message in get_flashed_messages() %}
+		<div style="position:absolute;top:450px;left:23px;">
+			<div class="alert alert-warning">
+				<a href="login" class="close" data-dismiss="alert">&times;</a>
+					<strong>Warning!</strong>{{ message}}
+			</div>
+		</div>
+		{% endfor %}
+		<div style="position:absolute;top:450px;left:5px;">
+		{%if error %}
+		<div class="alert alert-danger">
+			<a href="#" class="close" data-dismiss="alert">&times;</a>
+				<strong>Warning!</strong>{{error}}
+		</div>
+		{% endif %}
+		</div>			
+		</div>
+			<div class="page-footer">
+			Stevens institute of technology
+			<p style="left:50px;position:absolute;">New Jersey
+			</div>
+	</div>
+ </div>
+ <div class="container-fluid">
+	<div class="jumbotron1">
+	<div class="jumbotron2">
+	<img src="static/smart_logo.PNG" alt="Smiley face" height="420" width="420">
+ </div>
+ </div>
+ 
+ </div>
+	
+  </body>
+ </html>
+ 
